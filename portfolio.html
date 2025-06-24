@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ikram Messaoud</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Orbitron', sans-serif;
+      background: linear-gradient(145deg, #000010, #0d001a);
+      color: white;
+      text-align: center;
+      scroll-behavior: smooth;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+      background: rgba(0, 0, 20, 0.9);
+      box-shadow: 0 2px 8px rgba(255, 255, 255, 0.05);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .nav-logo {
+      font-size: 20px;
+      font-weight: bold;
+      background: linear-gradient(90deg, #30cfd0, #d33aff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 28px;
+      color: white;
+      cursor: pointer;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      font-size: 16px;
+      position: relative;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -4px;
+      width: 100%;
+      height: 2px;
+      background: linear-gradient(90deg, #30cfd0, #d33aff);
+      transform: scaleX(0);
+      transition: transform 0.3s ease;
+      transform-origin: right;
+    }
+
+    .nav-links a:hover::after {
+      transform: scaleX(1);
+      transform-origin: left;
+    }
+
+    header {
+      padding: 20px;
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    header span {
+      background: linear-gradient(90deg, #30cfd0, #d33aff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .profile-pic {
+      margin: 20px auto;
+      padding: 4px;
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #8a2be2, #ff00ff, #00bfff, #8a2be2);
+      background-size: 300% 300%;
+      animation: gradientBorder 4s ease infinite;
+      box-shadow: 0 4px 20px rgba(138, 43, 226, 0.4);
+    }
+
+    @keyframes gradientBorder {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .profile-pic img {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      display: block;
+      background-color: white;
+    }
+
+    h1 {
+      font-size: 32px;
+      margin: 0;
+      background: linear-gradient(90deg, #30cfd0, #d33aff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      line-height: 1.2;
+    }
+
+    .subtitle {
+      font-size: 16px;
+      margin: 10px 0 20px;
+      color: #ccc;
+    }
+
+    .description {
+      max-width: 600px;
+      margin: auto;
+      font-size: 14px;
+      color: #cfcfcf;
+      line-height: 1.6;
+      padding: 0 10px;
+    }
+
+    .download-resume {
+      margin: 20px auto;
+    }
+
+    .download-resume a {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 12px 25px;
+      font-size: 14px;
+      color: white;
+      text-decoration: none;
+      border: 2px solid #d33aff;
+      border-radius: 30px;
+      background: linear-gradient(90deg, #30cfd0, #d33aff);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .download-resume a:hover {
+      transform: scale(1.05);
+      box-shadow: 0 4px 15px rgba(211, 58, 255, 0.4);
+    }
+
+    section {
+      padding: 60px 20px;
+    }
+
+    #projects, #skills, #about {
+      background: linear-gradient(145deg, #0a001a, #150033);
+    }
+
+    #projects h2, #skills h2, #about h2, #contact h2 {
+      font-size: 32px;
+      margin-bottom: 40px;
+      background: linear-gradient(90deg, #30cfd0, #d33aff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .project-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      max-width: 1000px;
+      margin: auto;
+      padding: 0 10px;
+    }
+
+    .project-item {
+      background: linear-gradient(160deg, #1a0033, #2b004d);
+      border-radius: 16px;
+      padding: 25px;
+      box-shadow: 0 8px 20px rgba(211, 58, 255, 0.15);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .project-item::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -75%;
+      width: 50%;
+      height: 100%;
+      background: linear-gradient(to right, transparent, rgba(255,255,255,0.05), transparent);
+      transform: skewX(-20deg);
+      animation: shimmer 2.5s infinite;
+    }
+
+    @keyframes shimmer {
+      0% { left: -75%; }
+      100% { left: 125%; }
+    }
+
+    .project-title {
+      font-size: 20px;
+      margin-bottom: 12px;
+      color: #ffffff;
+    }
+
+    .project-desc {
+      font-size: 14px;
+      color: #cccccc;
+      line-height: 1.5;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+      gap: 20px;
+      max-width: 1000px;
+      margin: auto;
+      padding: 20px;
+    }
+
+    .skills-grid img {
+      width: 60px;
+      height: 60px;
+      object-fit: contain;
+      filter: drop-shadow(0 2px 6px rgba(255, 255, 255, 0.2));
+      transition: transform 0.3s;
+    }
+
+    .skills-grid img:hover {
+      transform: scale(1.1);
+    }
+
+    .about-content {
+      max-width: 800px;
+      margin: auto;
+      color: #ccc;
+      font-size: 15px;
+      line-height: 1.7;
+    }
+
+    .contact-button {
+      padding: 14px;
+      background: linear-gradient(90deg, #30cfd0, #d33aff);
+      border: none;
+      border-radius: 10px;
+      color: white;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .contact-button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 15px rgba(211, 58, 255, 0.5);
+    }
+
+    input:focus,
+    textarea:focus {
+      box-shadow: 0 0 10px rgba(48, 207, 208, 0.5), 0 0 20px rgba(211, 58, 255, 0.3);
+      border-color: #d33aff;
+      transition: box-shadow 0.3s ease, border-color 0.3s ease;
+    }
+
+    /* 🌐 Responsive Navbar Only */
+    @media (max-width: 768px) {
+      .nav-toggle {
+        display: block;
+      }
+
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background: rgba(0, 0, 20, 0.95);
+        padding: 10px 0;
+        position: absolute;
+        top: 60px;
+        left: 0;
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      .nav-links a {
+        margin: 10px 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="nav-logo">IkramM</div>
+    <button class="nav-toggle" onclick="toggleMenu()">☰</button>
+    <div class="nav-links" id="navLinks">
+      <a href="#">Home</a>
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+
+  <header><span>Ikram Messaoud</span></header>
+  <div class="profile-pic"><img src="profile.jpg" alt="Profile" /></div>
+
+  <h1>IKRAM<br>Messaoud</h1>
+  <div class="subtitle">Computer Engineering Student @ ESI SBA</div>
+  <div class="description">
+    Passionate about building creative digital experiences.<br>
+    I love mobile apps, backend logic, and dreamy UI/UX.<br>
+    Currently exploring AI, emotion recognition, and the cosmos of code.
+  </div>
+
+  <div class="download-resume">
+    <a href="CV.pdf" download>Download My Resume</a>
+  </div>
+
+<section id="projects" style="padding: 60px 20px; background: linear-gradient(145deg, #0a001a, #150033);">
+  <h2 style="font-size: 32px; margin-bottom: 40px; background: linear-gradient(90deg, #30cfd0, #d33aff); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+    My Projects
+  </h2>
+
+  <div class="project-grid">
+    <div class="project-card">
+      <h3>Dreamy UI Portfolio</h3>
+      <p>A personal portfolio with a dreamy futuristic design using HTML, CSS, and JS.</p>
+    </div>
+    <div class="project-card">
+      <h3>AI Emotion Detector</h3>
+      <p>An app that uses AI to recognize emotions from facial expressions in real time.</p>
+    </div>
+    <div class="project-card">
+      <h3>GuideMe App</h3>
+      <p>Contributed as backend developer in a mobile app that helps students find their academic path.</p>
+    </div>
+    <!-- Add more project cards here -->
+  </div>
+</section>
+
+<style>
+  .project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 30px;
+    max-width: 1000px;
+    margin: auto;
+    padding: 10px;
+  }
+
+  .project-card {
+    background: linear-gradient(160deg, #1a0033, #2b004d);
+    border-radius: 16px;
+    padding: 20px;
+    color: #ffffff;
+    box-shadow: 0 8px 20px rgba(211, 58, 255, 0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: left;
+  }
+
+  .project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(211, 58, 255, 0.3);
+  }
+
+  .project-card h3 {
+    margin: 0 0 10px;
+    font-size: 18px;
+    color: #30cfd0;
+  }
+
+  .project-card p {
+    margin: 0;
+    font-size: 14px;
+    color: #cccccc;
+  }
+</style>
+
+
+<section id="skills">
+  <h2>Skills</h2>
+  <style>
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+      gap: 20px;
+      max-width: 1000px;
+      margin: auto;
+      padding: 20px;
+    }
+
+    .skills-grid img {
+      width: 60px;
+      height: 60px;
+      object-fit: contain;
+      filter: drop-shadow(0 2px 6px rgba(255, 255, 255, 0.2));
+      transition: transform 0.3s;
+    }
+
+    .skills-grid img:hover {
+      transform: scale(1.1);
+    }
+  </style>
+  <div class="skills-grid">
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="Node.js">
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg" alt="Express">
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nestjs/nestjs-plain.svg" alt="NestJS">
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL">
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" alt="MongoDB">
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub">
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg" alt="TensorFlow">
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python">
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript">
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5">
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3">
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pandas/pandas-original.svg" alt="Pandas">
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/numpy/numpy-original.svg" alt="NumPy">
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" alt="Linux">
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postman/postman-original.svg" alt="Postman">
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" alt="Figma">
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/canva/canva-original.svg" alt="Canva">
+    <img src="https://sklearn.org/stable/_static/scikit-learn-logo-small.png" alt="Scikit-Learn">
+  </div>
+</section>
+
+
+  <section id="about">
+    <h2>About Me</h2>
+    <div class="about-content">
+     I'm Ikram Messaoud, a dedicated software developer and computer engineering student with a strong focus on backend engineering. I have a love for clean code, thoughtful design, and building systems that work beautifully and efficiently. I thrive in dynamic environments, always seeking innovative ways to solve problems and express creativity through technology.<br><br>
+With a solid foundation in both frontend and backend development, and a deep passion for AI and machine learning, I'm excited to contribute to impactful projects and collaborate with talented individuals around the world.
+
+    </div>
+  </section>
+
+
+
+
+
+ <section id="contact" style="padding: 60px 20px;">
+  <h2 style="font-size: 32px; background: linear-gradient(90deg, #30cfd0, #d33aff); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+    Contact Me
+  </h2>
+
+<form action="https://formspree.io/f/mjkraqwz" method="POST" style="max-width: 600px; margin: auto; display: flex; flex-direction: column; gap: 20px;">
+  <input type="text" name="name" placeholder="Your Name" required
+    style="padding: 12px; background: transparent; border: 2px solid #30cfd0; border-radius: 8px; color: white; font-size: 16px; outline: none;">
+  
+  <input type="email" name="email" placeholder="Your Email" required
+    style="padding: 12px; background: transparent; border: 2px solid #d33aff; border-radius: 8px; color: white; font-size: 16px; outline: none;">
+  
+  <textarea name="message" placeholder="Your Message" rows="5" required
+    style="padding: 12px; background: transparent; border: 2px solid #30cfd0; border-radius: 8px; color: white; font-size: 16px; outline: none;"></textarea>
+  
+  <button type="submit" class="contact-button">
+    Send Your Message
+  </button>
+</form>
+
+</section>
+
+<style>
+  .contact-button {
+    padding: 14px;
+    background: linear-gradient(90deg, #30cfd0, #d33aff);
+    border: none;
+    border-radius: 10px;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .contact-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(211, 58, 255, 0.5);
+  }
+
+    input:focus,
+  textarea:focus {
+    box-shadow: 0 0 10px rgba(48, 207, 208, 0.5), 0 0 20px rgba(211, 58, 255, 0.3);
+    border-color: #d33aff;
+    transition: box-shadow 0.3s ease, border-color 0.3s ease;
+  }
+
+</style>
+
+  <script>
+    function toggleMenu() {
+      document.getElementById("navLinks").classList.toggle("active");
+    }
+  </script>
+</body>
+</html>
