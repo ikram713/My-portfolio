@@ -5,6 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Ikram Messaoud</title>
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
+  <link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+/>
+
   <style>
     body {
       margin: 0;
@@ -391,6 +396,35 @@
     font-size: 14px;
     color: #cccccc;
   }
+
+  .contact-buttons a {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: inline-block;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+}
+
+.contact-buttons a:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35);
+  opacity: 0.9;
+}
+
+/* Optional: Custom background colors for each button */
+.contact-buttons a.linkedin {
+  background: #0077b5;
+}
+
+.contact-buttons a.email {
+  background: #d44638;
+}
+
+.contact-buttons a.github {
+  background: #333;
+}
+
 </style>
 
 
@@ -474,6 +508,43 @@ With a solid foundation in both frontend and backend development, and a deep pas
   </button>
 </form>
 
+ 
+<!-- Contact Buttons HTML -->
+<div class="contact-buttons">
+  <a href="https://www.linkedin.com/in/ikram-messaoud-08466b335?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank">
+    <i class="fab fa-linkedin-in"></i>
+  </a>
+  <a href="mailto:ikrammessaoud181@gmail.com">
+    <i class="fas fa-envelope"></i>
+  </a>
+  <a href=https://github.com/ikram713" target="_blank">
+    <i class="fab fa-github"></i>
+  </a>
+</div>
+
+<!-- Contact Buttons CSS -->
+<style>
+  .contact-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 30px;
+  }
+
+  .contact-buttons a {
+    font-size: 28px;
+    color: white;
+    text-decoration: none;
+    transition: transform 0.3s ease, color 0.3s ease;
+  }
+
+  .contact-buttons a:hover {
+    transform: scale(1.2);
+    background: linear-gradient(90deg, #30cfd0, #d33aff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+</style>
 </section>
 
 <style>
@@ -500,6 +571,19 @@ With a solid foundation in both frontend and backend development, and a deep pas
     border-color: #d33aff;
     transition: box-shadow 0.3s ease, border-color 0.3s ease;
   }
+  .site-footer {
+  background: linear-gradient(145deg, #0a001a, #150033);
+  color: #ccc;
+  text-align: center;
+  padding: 30px 20px;
+  font-size: 14px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.site-footer p {
+  margin: 0;
+}
+
 
 </style>
 
@@ -508,5 +592,9 @@ With a solid foundation in both frontend and backend development, and a deep pas
       document.getElementById("navLinks").classList.toggle("active");
     }
   </script>
+
+  <footer class="site-footer">
+  <p>&copy; 2025 Ikram Messaoud. All rights reserved.</p>
+</footer>
 </body>
 </html>
