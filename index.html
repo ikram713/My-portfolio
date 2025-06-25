@@ -200,11 +200,15 @@
     }
 
     /* ===== Projects Section ===== */
+    #projects {
+      padding-bottom: 40px;
+    }
+
     .project-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 30px;
-      margin: 0 auto;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 40px;
+      margin: 40px auto 0;
     }
 
     .project-card {
@@ -217,6 +221,7 @@
       text-align: left;
       position: relative;
       overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.1);
     }
 
     .project-card::before {
@@ -248,10 +253,60 @@
     }
 
     .project-card p {
-      margin: 0;
+      margin: 15px 0;
       font-size: 0.95rem;
       color: #cccccc;
       line-height: 1.6;
+    }
+
+    /* Tech Tags */
+    .tech-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 15px 0;
+    }
+
+    .tech-tag {
+      padding: 6px 12px;
+      border-radius: 4px;
+      font-size: 0.75rem;
+      font-weight: 500;
+      background: rgba(255, 255, 255, 0.08);
+      color: white;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(5px);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .tech-tag::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(
+        to bottom right,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.1) 50%,
+        rgba(255, 255, 255, 0) 100%
+      );
+      transform: rotate(30deg);
+      transition: all 0.3s ease;
+    }
+
+    .tech-tag:hover {
+      background: rgba(255, 255, 255, 0.15);
+      border-color: rgba(255, 255, 255, 0.3);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .tech-tag:hover::after {
+      left: 100%;
     }
 
     /* ===== Skills Section ===== */
@@ -259,7 +314,7 @@
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
       gap: 25px;
-      margin: 0 auto;
+      margin: 40px auto 0;
     }
 
     .skill-item {
@@ -297,22 +352,17 @@
     }
 
     /* ===== Contact Section ===== */
+    #contact {
+      padding-bottom: 40px;
+    }
+
     .contact-form {
       max-width: 600px;
-      margin: 0 auto;
+      margin: 40px auto 0;
       display: flex;
       flex-direction: column;
       gap: 20px;
-       margin-top: 40px;
     }
-
-    /* Add spacing between section title and content */
-.skills-grid,
-.project-grid,
-.contact-form {
-  margin-top: 40px;
-}
-
 
     .form-input {
       padding: 15px;
@@ -434,6 +484,11 @@
       .project-grid {
         grid-template-columns: 1fr;
       }
+      
+      .tech-tag {
+        padding: 4px 8px;
+        font-size: 0.65rem;
+      }
     }
   </style>
 </head>
@@ -477,15 +532,33 @@
       <div class="project-grid">
         <div class="project-card">
           <h3>Recommendation System</h3>
-          <p>A smart recommendation engine that suggests relevant items based on user preferences, built using Python, and scikit-learn.</p>
+          <p>A smart recommendation engine that suggests relevant items based on user preferences.</p>
+          <div class="tech-tags">
+            <span class="tech-tag">Python</span>
+            <span class="tech-tag">scikit-learn</span>
+            <span class="tech-tag">Pandas</span>
+            <span class="tech-tag">NumPy</span>
+          </div>
         </div>
         <div class="project-card">
           <h3>Real-Time Chat App</h3>
-          <p>A web-based chat application with real-time messaging using WebSockets and user authentication.</p>
+          <p>A web-based chat application with real-time messaging using WebSockets.</p>
+          <div class="tech-tags">
+            <span class="tech-tag">Node.js</span>
+            <span class="tech-tag">Express</span>
+            <span class="tech-tag">WebSockets</span>
+            <span class="tech-tag">MongoDB</span>
+          </div>
         </div>
         <div class="project-card">
           <h3>GuideMe App</h3>
           <p>Contributed as backend developer in a mobile app that helps students find their academic path.</p>
+          <div class="tech-tags">
+            <span class="tech-tag">Flutter</span>
+            <span class="tech-tag">Node.js</span>
+            <span class="tech-tag">MongoDB</span>
+            <span class="tech-tag">MapApi</span>
+          </div>
         </div>
       </div>
     </div>
@@ -594,7 +667,7 @@
         <button type="submit" class="btn btn-primary">Send Your Message</button>
       </form>
       
-     
+      
     </div>
   </section>
 
