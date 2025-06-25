@@ -259,6 +259,22 @@
       line-height: 1.6;
     }
 
+    /* Project Link */
+    .project-link {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      font-size: 1.2rem;
+      color: white;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .project-link:hover {
+      color: #30cfd0;
+      transform: scale(1.2);
+    }
+
     /* Tech Tags */
     .tech-tags {
       display: flex;
@@ -399,6 +415,21 @@
       transition: transform 0.3s ease;
     }
 
+    .project-link {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  font-size: 1.2rem;
+  color: white;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.project-link:hover {
+  color: #30cfd0;
+  transform: scale(1.2);
+}
+
     .contact-buttons a:hover {
       transform: scale(1.2);
       background: linear-gradient(90deg, #30cfd0, #d33aff);
@@ -531,6 +562,7 @@
       <h2 class="gradient-text">My Projects</h2>
       <div class="project-grid">
         <div class="project-card">
+          <a href="https://github.com/ikram713/Recommendation-System.git" target="_blank" class="project-link" title="View on GitHub">🔗</a>
           <h3>Recommendation System</h3>
           <p>A smart recommendation engine that suggests relevant items based on user preferences.</p>
           <div class="tech-tags">
@@ -541,6 +573,7 @@
           </div>
         </div>
         <div class="project-card">
+          <a href="https://github.com/ikram713/ChatApp.git" target="_blank" class="project-link" title="View on GitHub">🔗</a>
           <h3>Real-Time Chat App</h3>
           <p>A web-based chat application with real-time messaging using WebSockets.</p>
           <div class="tech-tags">
@@ -551,6 +584,7 @@
           </div>
         </div>
         <div class="project-card">
+          <a href="https://github.com/ikram713/2cpBackend.git" target="_blank" class="project-link" title="View on GitHub">🔗</a>
           <h3>GuideMe App</h3>
           <p>Contributed as backend developer in a mobile app that helps students find their academic path.</p>
           <div class="tech-tags">
