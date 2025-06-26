@@ -38,6 +38,7 @@
       background: linear-gradient(90deg, #30cfd0, #d33aff);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
+      margin-bottom: 30px;
     }
 
     /* ===== Layout ===== */
@@ -53,7 +54,12 @@
     }
 
     .section-dark {
-      background: linear-gradient(145deg, #0a001a, #150033);
+      background: rgba(10, 0, 26, 0.7);
+      backdrop-filter: blur(5px);
+      border-radius: 16px;
+      margin: 20px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+      border: 1px solid rgba(255, 255, 255, 0.1);
     }
 
     /* ===== Navigation ===== */
@@ -192,6 +198,8 @@
     .btn-primary {
       background: linear-gradient(90deg, #30cfd0, #d33aff);
       border: 2px solid transparent;
+      margin-top: 30px;
+      /* margin-bottom: 12px; */
     }
 
     .btn-primary:hover {
@@ -348,7 +356,6 @@
       width: 60px;
       height: 60px;
       object-fit: contain;
-       filter: drop-shadow(0 2px 6px rgba(255, 255, 255, 0.2));
     }
 
     .skill-name {
@@ -365,6 +372,48 @@
       font-size: 1.05rem;
       line-height: 1.8;
       text-align: left;
+      position: relative;
+      z-index: 1;
+    }
+
+    .about-list {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .about-item {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 20px;
+      padding: 20px;
+      background: rgba(20, 5, 40, 0.5);
+      border-radius: 12px;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(5px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .about-item:hover {
+      background: rgba(30, 10, 60, 0.6);
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(48, 207, 208, 0.2);
+    }
+
+    .about-icon {
+      font-size: 1.5rem;
+      margin-right: 20px;
+      min-width: 30px;
+      text-align: center;
+      background: linear-gradient(90deg, #30cfd0, #d33aff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .about-text {
+      flex: 1;
+      text-align: left;
     }
 
     /* ===== Contact Section ===== */
@@ -372,12 +421,57 @@
       padding-bottom: 40px;
     }
 
-    .contact-form {
-      max-width: 600px;
+    .contact-container {
+      display: flex;
+      gap: 40px;
+      max-width: 1000px;
       margin: 40px auto 0;
+    }
+
+    .contact-form {
+      flex: 1;
       display: flex;
       flex-direction: column;
       gap: 20px;
+    }
+
+    .contact-info {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 30px;
+      background: rgba(20, 5, 40, 0.5);
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .contact-text {
+      font-size: 1.1rem;
+      margin-bottom: 30px;
+      color: #cfcfcf;
+      line-height: 1.6;
+    }
+
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+      margin-top: 20px;
+    }
+
+    .social-links a {
+      font-size: 2rem;
+      color: white;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .social-links a:hover {
+      transform: scale(1.2);
+      background: linear-gradient(90deg, #30cfd0, #d33aff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
 
     .form-input {
@@ -401,45 +495,10 @@
       resize: vertical;
     }
 
-    .contact-buttons {
-      display: flex;
-      justify-content: center;
-      gap: 30px;
-      margin-top: 40px;
-    }
-
-    .contact-buttons a {
-      font-size: 1.8rem;
-      color: white;
-      text-decoration: none;
-      transition: transform 0.3s ease;
-    }
-
-    .project-link {
-  position: absolute;
-  top: 15px;
-  right: 15px;
-  font-size: 1.2rem;
-  color: white;
-  text-decoration: none;
-  transition: all 0.3s ease;
-}
-
-.project-link:hover {
-  color: #30cfd0;
-  transform: scale(1.2);
-}
-
-    .contact-buttons a:hover {
-      transform: scale(1.2);
-      background: linear-gradient(90deg, #30cfd0, #d33aff);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
     /* ===== Footer ===== */
     .site-footer {
       background: linear-gradient(145deg, #0a001a, #150033);
+      margin-top: 40px;
       color: #ccc;
       text-align: center;
       padding: 20px;
@@ -458,6 +517,13 @@
       text-decoration: none;
       transition: transform 0.3s ease;
     }
+
+    .contact-heading {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: #fff; /* Or match your design colors */
+  font-weight: 600;
+}
 
     .footer-icons a:hover {
       transform: scale(1.2);
@@ -500,6 +566,25 @@
         grid-template-columns: repeat(auto-fit, minmax(70px, 1fr));
         gap: 15px;
       }
+
+      .about-item {
+        padding: 15px;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .about-icon {
+        margin-bottom: 10px;
+        margin-right: 0;
+      }
+
+      .section-dark {
+        margin: 10px;
+      }
+
+      .contact-container {
+        flex-direction: column;
+      }
     }
 
     @media (max-width: 480px) {
@@ -519,6 +604,14 @@
       .tech-tag {
         padding: 4px 8px;
         font-size: 0.65rem;
+      }
+
+      .about-item {
+        padding: 12px;
+      }
+
+      .about-icon {
+        font-size: 1.2rem;
       }
     }
   </style>
@@ -605,76 +698,81 @@
       <div class="skills-grid">
         <div class="skill-item">
           <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="Node.js">
-          <span class="skill-name">Node.js</span>
+     
         </div>
         <div class="skill-item">
           <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg" alt="Express">
-          <span class="skill-name">Express</span>
+
         </div>
         <div class="skill-item">
           <img src="https://simpleicons.org/icons/nestjs.svg" alt="NestJS">
-          <span class="skill-name">NestJS</span>
+  
         </div>
         <div class="skill-item">
           <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL">
-          <span class="skill-name">MySQL</span>
+
         </div>
         <div class="skill-item">
           <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" alt="MongoDB">
-          <span class="skill-name">MongoDB</span>
+
         </div>
         <div class="skill-item">
           <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub">
-          <span class="skill-name">GitHub</span>
+
         </div>
         <div class="skill-item">
           <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg" alt="TensorFlow">
-          <span class="skill-name">TensorFlow</span>
+
         </div>
         <div class="skill-item">
           <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python">
-          <span class="skill-name">Python</span>
+
         </div>
         <div class="skill-item">
           <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript">
-          <span class="skill-name">JavaScript</span>
+
         </div>
         <div class="skill-item">
           <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5">
-          <span class="skill-name">HTML5</span>
+
         </div>
         <div class="skill-item">
           <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3">
-          <span class="skill-name">CSS3</span>
+
         </div>
         <div class="skill-item">
           <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pandas/pandas-original.svg" alt="Pandas">
-          <span class="skill-name">Pandas</span>
+
         </div>
         <div class="skill-item">
           <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/numpy/numpy-original.svg" alt="NumPy">
-          <span class="skill-name">NumPy</span>
+
         </div>
         <div class="skill-item">
           <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" alt="Linux">
-          <span class="skill-name">Linux</span>
+  
         </div>
         <div class="skill-item">
           <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postman/postman-original.svg" alt="Postman">
-          <span class="skill-name">Postman</span>
+
         </div>
         <div class="skill-item">
           <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" alt="Figma">
-          <span class="skill-name">Figma</span>
+
         </div>
         <div class="skill-item">
           <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/canva/canva-original.svg" alt="Canva">
-          <span class="skill-name">Canva</span>
+
         </div>
         <div class="skill-item">
           <img src="https://sklearn.org/stable/_static/scikit-learn-logo-small.png" alt="Scikit-Learn">
-          <span class="skill-name">Scikit-Learn</span>
+
         </div>
+        <div class="skill-item">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git">
+
+       </div>
+
       </div>
     </div>
   </section>
@@ -684,8 +782,32 @@
     <div class="container">
       <h2 class="gradient-text">About Me</h2>
       <div class="about-content">
-        <p>I'm Ikram Messaoud, a dedicated software developer and computer engineering student with a strong focus on backend engineering. I have a love for clean code, thoughtful design, and building systems that work beautifully and efficiently. I thrive in dynamic environments, always seeking innovative ways to solve problems and express creativity through technology.</p>
-        <p>With a solid foundation in both frontend and backend development, and a deep passion for AI and machine learning, I'm excited to contribute to impactful projects and collaborate with talented individuals around the world.</p>
+        <ul class="about-list">
+          <li class="about-item">
+            <span class="about-icon">🚀</span>
+            <span class="about-text">Computer Engineering student at ESI SBA with a passion for backend development and AI</span>
+          </li>
+          <li class="about-item">
+            <span class="about-icon">💻</span>
+            <span class="about-text">Specialized in building efficient backend systems and APIs with Node.js and Python</span>
+          </li>
+          <li class="about-item">
+            <span class="about-icon">🧠</span>
+            <span class="about-text">Currently exploring machine learning and AI to build smarter applications</span>
+          </li>
+          <li class="about-item">
+            <span class="about-icon">🔧</span>
+            <span class="about-text">Strong believer in clean code, thoughtful architecture, and continuous learning</span>
+          </li>
+          <li class="about-item">
+            <span class="about-icon">🌐</span>
+            <span class="about-text">Enjoy collaborating on open-source projects and solving real-world problems</span>
+          </li>
+          <li class="about-item">
+            <span class="about-icon">🎯</span>
+            <span class="about-text">Looking for opportunities to contribute to impactful projects and grow as a developer</span>
+          </li>
+        </ul>
       </div>
     </div>
   </section>
@@ -694,31 +816,50 @@
   <section id="contact">
     <div class="container">
       <h2 class="gradient-text">Contact Me</h2>
-      <form action="https://formspree.io/f/mjkraqwz" method="POST" class="contact-form">
-        <input type="text" name="name" placeholder="Your Name" required class="form-input">
-        <input type="email" name="email" placeholder="Your Email" required class="form-input">
-        <textarea name="message" placeholder="Your Message" required class="form-input"></textarea>
-        <button type="submit" class="btn btn-primary">Send Your Message</button>
-      </form>
-      
-      
+      <div class="contact-container">
+        <form action="https://formspree.io/f/mjkraqwz" method="POST" class="contact-form">
+          <input type="text" name="name" placeholder="Your Name" required class="form-input">
+          <input type="email" name="email" placeholder="Your Email" required class="form-input">
+          <textarea name="message" placeholder="Your Message" required class="form-input"></textarea>
+          <button type="submit" class="btn btn-primary">Send Message</button>
+        </form>
+        
+        <div class="contact-info">
+             <h3 class="contact-heading">Get in Touch</h3>
+          <p class="contact-text">
+            Want to collaborate on a project?<br>
+            Have a question about my work?<br>
+            Or just want to say hello?<br><br>
+            Feel free to reach out through the form or connect with me on social media!
+          </p>
+          
+          <div class="social-links">
+            <a href="https://github.com/ikram713" target="_blank" aria-label="GitHub">
+              <i class="fab fa-github"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/ikram-messaoud-08466b335" target="_blank" aria-label="LinkedIn">
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+            <a href="https://www.facebook.com/share/1DLDuQkfFd/" target="_blank" aria-label="Facebook">
+              <i class="fab fa-facebook"></i>
+            </a>
+            <a href="https://www.instagram.com/ikr._.rm?igsh=ZGQwcDhrdXBiMG9q" target="_blank" aria-label="Instagram">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a href="mailto:ikrammessaoud181@example.com" target="_blank" aria-label="Email">
+              <i class="fas fa-envelope"></i> 
+              </a>
+
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
   <!-- Footer -->
   <footer class="site-footer">
     <div class="container">
-      <div class="footer-icons">
-        <a href="https://www.linkedin.com/in/ikram-messaoud-08466b335" target="_blank" aria-label="LinkedIn">
-          <i class="fab fa-linkedin-in"></i>
-        </a>
-        <a href="mailto:ikrammessaoud181@gmail.com" aria-label="Email">
-          <i class="fas fa-envelope"></i>
-        </a>
-        <a href="https://github.com/ikram713" target="_blank" aria-label="GitHub">
-          <i class="fab fa-github"></i>
-        </a>
-      </div>
+
       <p>&copy; 2025 Ikram Messaoud. All rights reserved.</p>
     </div>
   </footer>
