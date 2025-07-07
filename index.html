@@ -545,66 +545,31 @@
       text-align: left;
       position: relative;
       z-index: 1;
+      padding: 30px;
+      border-radius: 16px;
+      transition: all 0.5s;
     }
 
-    .about-list {
-      list-style-type: none;
-      padding: 0;
-      margin: 0;
-    }
-
-    .about-item {
-      display: flex;
-      align-items: flex-start;
-      margin-bottom: 20px;
-      padding: 20px;
-      border-radius: 12px;
-      transition: all 0.3s ease;
-      backdrop-filter: blur(5px);
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    }
-
-    .dark-mode .about-item {
-      background: rgba(20, 5, 40, 0.5);
+    .dark-mode .about-content {
+      background: var(--dark-bg-secondary);
       border: 1px solid var(--dark-border);
+      color: var(--dark-text-primary);
     }
 
-    .light-mode .about-item {
-      background: rgba(255, 255, 255, 0.8);
+    .light-mode .about-content {
+      background: var(--light-bg-secondary);
       border: 1px solid var(--light-border);
-    }
-
-    .about-item:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 6px 20px rgba(48, 207, 208, 0.2);
-    }
-
-    .dark-mode .about-item:hover {
-      background: rgba(30, 10, 60, 0.6);
-    }
-
-    .light-mode .about-item:hover {
-      background: rgba(255, 255, 255, 0.9);
-    }
-
-    .about-icon {
-      font-size: 1.5rem;
-      margin-right: 20px;
-      min-width: 30px;
-      text-align: center;
-      background: var(--accent-gradient);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+      color: var(--light-text-primary);
     }
 
     .about-text {
-      flex: 1;
-      text-align: left;
+      text-align: justify;
+      margin-bottom: 20px;
       transition: color 0.3s;
     }
 
     .dark-mode .about-text {
-      color: #ccc;
+      color: #cfcfcf;
     }
 
     .light-mode .about-text {
@@ -829,17 +794,6 @@
         gap: 15px;
       }
 
-      .about-item {
-        padding: 15px;
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
-      .about-icon {
-        margin-bottom: 10px;
-        margin-right: 0;
-      }
-
       .section-dark {
         margin: 10px;
       }
@@ -868,12 +822,8 @@
         font-size: 0.65rem;
       }
 
-      .about-item {
-        padding: 12px;
-      }
-
-      .about-icon {
-        font-size: 1.2rem;
+      .about-content {
+        padding: 20px;
       }
     }
   </style>
@@ -884,7 +834,7 @@
 
   <!-- Navigation -->
   <nav>
-    <div class="nav-logo">M'Ikram</div>
+    <div class="nav-logo">Messaoud Ikram</div>
     <div style="display: flex; align-items: center;">
       <div class="nav-links" id="navLinks">
         <a href="#" onclick="closeMenu()">Home</a>
@@ -1045,32 +995,15 @@
     <div class="container">
       <h2 class="gradient-text">About Me</h2>
       <div class="about-content">
-        <ul class="about-list">
-          <li class="about-item">
-            <span class="about-icon">🚀</span>
-            <span class="about-text">Computer Engineering student at ESI SBA with a passion for backend development and AI</span>
-          </li>
-          <li class="about-item">
-            <span class="about-icon">💻</span>
-            <span class="about-text">Specialized in building efficient backend systems and APIs with Node.js and Python</span>
-          </li>
-          <li class="about-item">
-            <span class="about-icon">🧠</span>
-            <span class="about-text">Currently exploring machine learning and AI to build smarter applications</span>
-          </li>
-          <li class="about-item">
-            <span class="about-icon">🔧</span>
-            <span class="about-text">Strong believer in clean code, thoughtful architecture, and continuous learning</span>
-          </li>
-          <li class="about-item">
-            <span class="about-icon">🌐</span>
-            <span class="about-text">Enjoy collaborating on open-source projects and solving real-world problems</span>
-          </li>
-          <li class="about-item">
-            <span class="about-icon">🎯</span>
-            <span class="about-text">Looking for opportunities to contribute to impactful projects and grow as a developer</span>
-          </li>
-        </ul>
+        <p class="about-text">
+         I'm a Computer Engineering student at ESI SBA, passionate about backend development and AI, specializing in building efficient systems and APIs.
+        </p>
+        <p class="about-text">
+          Currently, I'm expanding my knowledge in machine learning and AI to develop smarter applications that can solve real-world problems. I believe in the power of clean code, thoughtful architecture, and continuous learning to create robust and scalable solutions.
+        </p>
+        <p class="about-text">
+         Beyond coding, I love contributing to open-source and the developer community. I'm always seeking new challenges and opportunities to grow through impactful projects.
+        </p>
       </div>
     </div>
   </section>
@@ -1300,7 +1233,8 @@
         },
         "retina_detect": true
       });
-    });
+    });s.html
+    
   </script>
 </body>
 </html>
